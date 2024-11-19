@@ -1,0 +1,1 @@
+﻿global using TaskStatus = ToDoApp.Domain.TaskStatus;
