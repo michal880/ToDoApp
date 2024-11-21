@@ -1,17 +1,20 @@
 ﻿using System.Text;
 using System.Text.Json;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
 
-namespace ToDoApp.Infrastructure;
+namespace ToDoApp.ServiceBus;
 
 public class RabbitMqPublisher
 {
+    private readonly ILogger<RabbitMqPublisher> _logger;
     private readonly IConnection _connection;
     private readonly IModel _channel;
 
-    public RabbitMqPublisher(IOptions<RabbitMqSettings> rabbitSettings)
+    public RabbitMqPublisher(IOptions<RabbitMqSettings> rabbitSettings, ILogger<RabbitMqPublisher> logger)
     {
+        _logger = logger;
         var settingsValues = rabbitSettings.Value;
         var factory = new ConnectionFactory
         {
@@ -54,11 +57,11 @@ public class RabbitMqPublisher
                 basicProperties: properties,
                 body: body);
 
-            Console.WriteLine($"Message sent to queue: {queueName}");
+            _logger.LogInformation($"Message sent to queue: {queueName}");
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error sending message: {ex.Message}");
+            _logger.LogError($"Error sending message: {ex.Message}");
             throw;
         }
 

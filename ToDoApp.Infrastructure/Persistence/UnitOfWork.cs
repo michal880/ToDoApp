@@ -1,6 +1,6 @@
 ﻿using ToDoApp.Application;
 
-namespace ToDoApp.Infrastructure;
+namespace ToDoApp.Infrastructure.Persistence;
 
 public class UnitOfWork : IUnitOfWork
 {

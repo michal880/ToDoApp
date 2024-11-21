@@ -1,6 +1,7 @@
 ﻿using ToDoApp.Application;
+using ToDoApp.ServiceBus;
 
-namespace ToDoApp.Infrastructure;
+namespace ToDoApp.Infrastructure.ServiceBus;
 
 public class ServiceBus : IServiceBus
 {

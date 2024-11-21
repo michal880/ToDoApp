@@ -1,6 +1,4 @@
-﻿using System.Text.Json;
-
-namespace ToDoApp;
+﻿namespace ToDoApp.ServiceBus;
 
 public class MessageEnvelope
 {

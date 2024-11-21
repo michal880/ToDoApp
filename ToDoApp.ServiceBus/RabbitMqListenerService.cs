@@ -6,9 +6,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using ToDoApp.Infrastructure;
 
-namespace ToDoApp;
+namespace ToDoApp.ServiceBus;
 
 public class RabbitMqListenerService : BackgroundService
 {
@@ -92,7 +91,7 @@ public class RabbitMqListenerService : BackgroundService
             }
             catch (Exception ex)
             {
-                _logger.LogInformation($"Error processing message from queue '{queueName}': {ex.Message}");
+                _logger.LogError($"Error processing message from queue '{queueName}': {ex.Message}");
                 _channel.BasicNack(ea.DeliveryTag, false, true);
             }
         };

@@ -1,4 +1,4 @@
-﻿namespace ToDoApp.Consumers;
+﻿namespace ToDoApp.Consumers.TaskStatusUpdatedEvent;
 public class TaskUpdatedEvent
 {
     public TaskUpdatedEvent(int id, TaskStatus oldStatus, TaskStatus newStatus, DateTime timestamp)

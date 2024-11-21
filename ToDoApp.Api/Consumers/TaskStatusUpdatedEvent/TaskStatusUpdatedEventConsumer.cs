@@ -1,4 +1,6 @@
-﻿namespace ToDoApp.Consumers;
+﻿using ToDoApp.ServiceBus;
+
+namespace ToDoApp.Consumers.TaskStatusUpdatedEvent;
 
 public class TaskStatusUpdatedEventConsumer : IConsumer<TaskUpdatedEvent>
 {

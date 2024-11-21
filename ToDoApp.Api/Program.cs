@@ -1,13 +1,15 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using ToDoApp;
 using ToDoApp.Application;
 using ToDoApp.Application.AddTask;
-using ToDoApp.Application.UpdateTaskStatus;
-using ToDoApp.Consumers;
+using ToDoApp.Consumers.TaskStatusUpdatedEvent;
+using ToDoApp.Consumers.UpdateTaskStatusMessage;
 using ToDoApp.Domain.Repositories;
 using ToDoApp.Infrastructure;
-using TaskUpdatedEvent = ToDoApp.Consumers.TaskUpdatedEvent;
+using ToDoApp.Infrastructure.Persistence;
+using ToDoApp.Infrastructure.ServiceBus;
+using ToDoApp.ServiceBus;
+using TaskUpdatedEvent = ToDoApp.Consumers.TaskStatusUpdatedEvent.TaskUpdatedEvent;
 
 var builder = WebApplication.CreateBuilder(args);
 

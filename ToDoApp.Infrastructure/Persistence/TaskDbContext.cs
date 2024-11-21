@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ToDoApp.Domain;
 
-namespace ToDoApp.Infrastructure;
+namespace ToDoApp.Infrastructure.Persistence;
 
 public class TaskDbContext : DbContext
 {

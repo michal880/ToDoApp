@@ -2,7 +2,7 @@
 using ToDoApp.Domain;
 using ToDoApp.Domain.Repositories;
 
-namespace ToDoApp.Infrastructure;
+namespace ToDoApp.Infrastructure.Persistence;
 
 public class TaskRepository : ITaskRepository
 {
@@ -32,10 +32,5 @@ public class TaskRepository : ITaskRepository
     { 
         _dbContext.Tasks.Update(task);
         return Task.CompletedTask;
-    }
-
-    public async Task SaveChangesAsync()
-    {
-        await _dbContext.SaveChangesAsync();
     }
 }

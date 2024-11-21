@@ -1,7 +1,8 @@
 ﻿using MediatR;
 using ToDoApp.Application.UpdateTaskStatus;
+using ToDoApp.ServiceBus;
 
-namespace ToDoApp.Consumers;
+namespace ToDoApp.Consumers.UpdateTaskStatusMessage;
 
 public class UpdateTaskStatusMessageConsumer : IConsumer<UpdateTaskStatusMessage>
 {
@@ -11,7 +12,7 @@ public class UpdateTaskStatusMessageConsumer : IConsumer<UpdateTaskStatusMessage
     {
         _mediator = mediator;
     }
-    public async Task ConsumeAsync(UpdateTaskStatusMessage message)
+    public async Task ConsumeAsync(Consumers.UpdateTaskStatusMessage.UpdateTaskStatusMessage message)
     {
         var cmd = new UpdateTaskStatusCommand()
         {

@@ -1,4 +1,4 @@
-﻿namespace ToDoApp.Consumers;
+﻿namespace ToDoApp.Consumers.UpdateTaskStatusMessage;
 
 public class UpdateTaskStatusMessage
 {

@@ -1,4 +1,4 @@
-﻿namespace ToDoApp;
+﻿namespace ToDoApp.ServiceBus;
 
 public interface IConsumer<T> where T : class
 {

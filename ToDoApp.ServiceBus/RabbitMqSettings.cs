@@ -1,4 +1,4 @@
-﻿namespace ToDoApp.Infrastructure;
+﻿namespace ToDoApp.ServiceBus;
 
 public class RabbitMqSettings
 {
