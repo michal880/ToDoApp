@@ -3,6 +3,16 @@
 public class TaskEntity
 {
     public TaskEntity() { }
+
+    public TaskEntity(int id, string name, string description, TaskStatus status, string? assignedTo)
+    {
+        ID = id;
+        Name = name;
+        Description = description;
+        Status = status;
+        AssignedTo = assignedTo;
+    }
+
     public int ID { get;  set; }
     public string Name { get; private set; }
     public string Description { get; private set; }
@@ -22,7 +32,7 @@ public class TaskEntity
     {
         if (newStatus == Status)
         {
-            throw new InvalidOperationException("Task is already in the specified status.");
+            throw new InvalidOperationException($"Task already has the {newStatus} status.");
         }
 
         Status = newStatus;

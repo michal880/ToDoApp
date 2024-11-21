@@ -36,6 +36,6 @@ public class TasksController : ControllerBase
     public async Task<IActionResult> UpdateTaskStatus(int id, [FromBody] TaskStatus newStatus)
     {
         await _mediator.Send(new UpdateTaskStatusCommand { Id = id, NewStatus = newStatus });
-        return NoContent();
+        return Accepted();
     }
 }

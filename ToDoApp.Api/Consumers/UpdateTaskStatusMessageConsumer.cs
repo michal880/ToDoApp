@@ -1,8 +1,7 @@
-﻿using MassTransit;
-using MediatR;
+﻿using MediatR;
 using ToDoApp.Application.UpdateTaskStatus;
 
-namespace ToDoApp;
+namespace ToDoApp.Consumers;
 
 public class UpdateTaskStatusMessageConsumer : IConsumer<UpdateTaskStatusMessage>
 {
@@ -12,22 +11,13 @@ public class UpdateTaskStatusMessageConsumer : IConsumer<UpdateTaskStatusMessage
     {
         _mediator = mediator;
     }
-    public async Task Consume(ConsumeContext<UpdateTaskStatusMessage> context)
+    public async Task ConsumeAsync(UpdateTaskStatusMessage message)
     {
         var cmd = new UpdateTaskStatusCommand()
         {
-            Id = context.Message.Id,
-            NewStatus = context.Message.NewStatus
+            Id = message.Id,
+            NewStatus = message.NewStatus
         };
         await _mediator.Publish(cmd);
-    }
-}
-public class TaskUpdatedEventConsumer : IConsumer<TaskUpdatedEvent>
-{
-    public async Task Consume(ConsumeContext<TaskUpdatedEvent> context)
-    {
-        var message = context.Message;
-        Console.WriteLine($"Task Updated: {message.Id}, New Status: {message.NewStatus}");
-        await Task.CompletedTask;
     }
 }

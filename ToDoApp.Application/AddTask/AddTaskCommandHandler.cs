@@ -20,6 +20,6 @@ public class AddTaskCommandHandler : IRequestHandler<AddTaskCommand, int>
         var task = new TaskEntity(request.ID, request.Name, request.Description, request.AssignedTo);
         await _repository.AddAsync(task);
         await _unitOfWork.Commit(cancellationToken);
-        return task.ID;
+        return task.ID; 
     }
 }
